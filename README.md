@@ -1,6 +1,6 @@
 # Shallow Water Equations using Roe's Riemann Solver
 
-> **Course Project for AS5420 — [Course Title], Department of Aerospace Engineering, IIT Madras**
+> **Course Project : AS5420 — Intro to CFD**
 
 This project implements an approximate Riemann-solver-based finite-volume method for solving the **Shallow Water Equations (SWEs)** in one and two dimensions. The implementation is based on Roe's approximate Riemann solver and is developed to study the numerical treatment of discontinuous free-surface flows, including dam-break problems and flow over uneven bottom topography.
 
@@ -24,38 +24,6 @@ The implementation includes:
 - Wet and dry dam-break configurations
 - Extension from one to two spatial dimensions using dimensional splitting
 - Visualization and export of numerical solutions
-
----
-
-## Governing Equations
-
-The dimensionless shallow water equations are written in conservative form as
-
-$$
-\frac{\partial \mathbf{U}}{\partial t}
-+
-\frac{\partial \mathbf{F}}{\partial x}
-+
-\frac{\partial \mathbf{G}}{\partial y}
-=
-\mathbf{S},
-$$
-
-where
-
-$$
-\mathbf{U}
-=
-\begin{pmatrix}
-h \\
-q_x \\
-q_y
-\end{pmatrix}
-$$
-
-is the vector of conserved variables containing the water depth and unit-width discharges.
-
-The numerical fluxes are evaluated by solving the approximate Riemann problem at cell interfaces using Roe-averaged quantities.
 
 ---
 
@@ -111,8 +79,6 @@ A still-water configuration over a sloping bottom is used to examine the treatme
 
 The analytical solution corresponds to a stationary free surface, making this a useful test of the numerical balance between fluxes and source terms.
 
-![Still Water](results/still_water.png)
-
 ---
 
 ### 2. 1D Dam Break on a Dry Bottom
@@ -120,8 +86,6 @@ The analytical solution corresponds to a stationary free surface, making this a 
 A dam-break problem with an initially dry downstream region is used to examine the behavior of the solver near a wet-dry interface.
 
 The simulation tests the ability of the numerical scheme to maintain monotonicity and avoid non-physical negative water depths as the advancing front approaches the dry region.
-
-![Dry Dam Break](results/dam_break_dry.png)
 
 ---
 
@@ -131,8 +95,6 @@ A second dam-break configuration is considered with a non-zero downstream water 
 
 This avoids the dry-bed singularity and provides a standard test for shock propagation and numerical oscillation control.
 
-![Wet Dam Break](results/dam_break_wet.png)
-
 ---
 
 ### 4. 2D Partial Dam Break
@@ -140,8 +102,6 @@ This avoids the dry-bed singularity and provides a standard test for shock propa
 The 1D solver is extended to two dimensions using **dimensional splitting**, in which the numerical solution is advanced successively in the $x$ and $y$ directions.
 
 A partial breach in a rectangular reservoir is simulated to demonstrate two-dimensional shock propagation and wave reflection from the reservoir boundaries.
-
-![2D Dam Break](results/dam_break_2d.png)
 
 ---
 
@@ -158,37 +118,6 @@ The numerical experiments demonstrate the ability of the solver to:
 
 For the 1D wet-bottom dam-break case, the computed bore is captured sharply within a small number of computational cells, while the 2D simulation demonstrates the propagation and reflection of the resulting wave field.
 
----
-
-## Repository Structure
-
-```text
-.
-├── src/
-│   └── shallow_water.py
-│
-├── simulations/
-│   ├── still_water.py
-│   ├── dam_break_dry.py
-│   ├── dam_break_wet.py
-│   └── dam_break_2d.py
-│
-├── data/
-│   ├── still_water.csv
-│   ├── dam_break_dry.csv
-│   ├── dam_break_wet.csv
-│   └── dam_break_2d_elevation.csv
-│
-├── results/
-│   ├── still_water.png
-│   ├── dam_break_dry.png
-│   ├── dam_break_wet.png
-│   └── dam_break_2d.png
-│
-├── docs/
-│   └── AS5420_Project_Report.pdf
-│
-├── tests/
 │
 ├── requirements.txt
 ├── .gitignore
