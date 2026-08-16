@@ -79,7 +79,6 @@ A still-water configuration over a sloping bottom is used to examine the treatme
 
 The analytical solution corresponds to a stationary free surface, making this a useful test of the numerical balance between fluxes and source terms.
 
----
 
 ### 2. 1D Dam Break on a Dry Bottom
 
@@ -87,7 +86,6 @@ A dam-break problem with an initially dry downstream region is used to examine t
 
 The simulation tests the ability of the numerical scheme to maintain monotonicity and avoid non-physical negative water depths as the advancing front approaches the dry region.
 
----
 
 ### 3. 1D Dam Break in a Wet Basin
 
@@ -95,7 +93,6 @@ A second dam-break configuration is considered with a non-zero downstream water 
 
 This avoids the dry-bed singularity and provides a standard test for shock propagation and numerical oscillation control.
 
----
 
 ### 4. 2D Partial Dam Break
 
@@ -118,7 +115,3 @@ The numerical experiments demonstrate the ability of the solver to:
 
 For the 1D wet-bottom dam-break case, the computed bore is captured sharply within a small number of computational cells, while the 2D simulation demonstrates the propagation and reflection of the resulting wave field.
 
-│
-├── requirements.txt
-├── .gitignore
-└── README.md
